@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities2">
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="LMSModel.Book">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="bookid" ColumnName="bookid" />
+          <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+          <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+          <ScalarProperty Name="publishDate" ColumnName="publishDate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="imagetype" ColumnName="imagetype" />
+          <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueBooks">
+      <EntityTypeMapping TypeName="LMSModel.IssueBook">
+        <MappingFragment StoreEntitySet="IssueBook">
+          <ScalarProperty Name="fine" ColumnName="fine" />
+          <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="LMSModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="studentid" ColumnName="studentid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="aridno" ColumnName="aridno" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="fathername" ColumnName="fathername" />
+          <ScalarProperty Name="degree" ColumnName="degree" />
+          <ScalarProperty Name="section" ColumnName="section" />
+          <ScalarProperty Name="semester" ColumnName="semester" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="imageType" ColumnName="imageType" />
+          <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LMSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="imageType" ColumnName="imageType" />
+          <ScalarProperty Name="imageBytes" ColumnName="imageBytes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK__IssueBook__booki__1EA48E88" TypeName="LMSModel.FK__IssueBook__booki__1EA48E88" StoreEntitySet="IssueBook">
+      <EndProperty Name="Books">
+        <ScalarProperty Name="bookid" ColumnName="bookid" />
+      </EndProperty>
+      <EndProperty Name="IssueBook">
+        <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK__IssueBook__stude__1DB06A4F" TypeName="LMSModel.FK__IssueBook__stude__1DB06A4F" StoreEntitySet="IssueBook">
+      <EndProperty Name="Students">
+        <ScalarProperty Name="studentid" ColumnName="studentid" />
+      </EndProperty>
+      <EndProperty Name="IssueBook">
+        <ScalarProperty Name="issueBookid" ColumnName="issueBookid" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

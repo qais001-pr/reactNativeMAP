@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="bookid" />
+    </Key>
+    <Property Name="bookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BookTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="publishDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="imagetype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="IssueBooks" Relationship="Self.FK__IssueBook__booki__09A971A2" FromRole="Books" ToRole="IssueBook" />
+  </EntityType>
+  <EntityType Name="IssueBook">
+    <Key>
+      <PropertyRef Name="issueBookid" />
+    </Key>
+    <Property Name="issueBookid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IssueDate" Type="DateTime" Precision="3" />
+    <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__IssueBook__booki__09A971A2" FromRole="IssueBook" ToRole="Books" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__IssueBook__Creat__08B54D69" FromRole="IssueBook" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentid" />
+    </Key>
+    <Property Name="studentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="aridno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fullname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fathername" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="section" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="semester" Type="Int32" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="imageType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="IssueBooks" Relationship="Self.FK__IssueBook__Creat__08B54D69" FromRole="Students" ToRole="IssueBook" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageBytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK__IssueBook__booki__09A971A2">
+    <End Role="Books" Type="Self.Book" Multiplicity="1" />
+    <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
+  </Association>
+  <Association Name="FK__IssueBook__Creat__08B54D69">
+    <End Role="Students" Type="Self.Student" Multiplicity="1" />
+    <End Role="IssueBook" Type="Self.IssueBook" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="LMSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="IssueBooks" EntityType="Self.IssueBook" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__IssueBook__booki__09A971A2" Association="Self.FK__IssueBook__booki__09A971A2">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="IssueBook" EntitySet="IssueBooks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__IssueBook__Creat__08B54D69" Association="Self.FK__IssueBook__Creat__08B54D69">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="IssueBook" EntitySet="IssueBooks" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
