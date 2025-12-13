@@ -28,7 +28,7 @@
           <Property Name="degree" Type="varchar(max)" />
           <Property Name="city" Type="varchar(max)" />
           <Property Name="semester" Type="int" Nullable="false" />
-          <Property Name="profilepic" Type="varbinary(max)" />
+          <Property Name="Profileimage" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="fypModelStoreContainer">
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
@@ -62,9 +62,9 @@
           <Property Name="degree" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="semester" Type="Int32" Nullable="false" />
-          <Property Name="profilepic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Profileimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="fypEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="fypEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Books" EntityType="Self.Book" />
           <EntitySet Name="Students" EntityType="Self.Student" />
         </EntityContainer>
@@ -73,7 +73,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities">
+        <EntityContainerMapping StorageEntityContainer="fypModelStoreContainer" CdmEntityContainer="fypEntities1">
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="fypModel.Book">
               <MappingFragment StoreEntitySet="Book">
@@ -97,7 +97,7 @@
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="semester" ColumnName="semester" />
-                <ScalarProperty Name="profilepic" ColumnName="profilepic" />
+                <ScalarProperty Name="Profileimage" ColumnName="Profileimage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -116,7 +116,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

@@ -22,6 +22,6 @@ namespace webapi
         public string degree { get; set; }
         public string city { get; set; }
         public int semester { get; set; }
-        public byte[] profilepic { get; set; }
+        public string Profileimage { get; set; }
     }
 }

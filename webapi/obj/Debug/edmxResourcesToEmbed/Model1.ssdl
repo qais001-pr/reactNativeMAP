@@ -23,7 +23,7 @@
     <Property Name="degree" Type="varchar(max)" />
     <Property Name="city" Type="varchar(max)" />
     <Property Name="semester" Type="int" Nullable="false" />
-    <Property Name="profilepic" Type="varbinary(max)" />
+    <Property Name="Profileimage" Type="varchar(max)" />
   </EntityType>
   <EntityContainer Name="fypModelStoreContainer">
     <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />

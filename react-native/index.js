@@ -60,6 +60,7 @@ import { AppRegistry } from 'react-native';
 
 // import ImageEmployeePortal from './screens/week10/ImageEmployeePortal';
 // import MyApp from './screens/week10/StackNav/MyApp';
-import Auth from './screens/week12/Auth';
+// import Auth from './screens/week12/Auth';
 import { name as appName } from './app.json';
-AppRegistry.registerComponent(appName, () => Auth);
+import MyApp from './screens/week13/App';
+AppRegistry.registerComponent(appName, () => MyApp);

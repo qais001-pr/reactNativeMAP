@@ -1,4 +1,5 @@
 {
     "emulator.emulatorPath": "C:\\Users\\admin\\AppData\\Local\\Android\\Sdk\\emulator",
-    "emulator.emulatorPathWindows": "C:\\Users\\admin\\AppData\\Local\\Android\\Sdk\\emulator"
+    "emulator.emulatorPathWindows": "C:\\Users\\admin\\AppData\\Local\\Android\\Sdk\\emulator",
+    "postman.settings.dotenv-detection-notification-visibility": false
 }
